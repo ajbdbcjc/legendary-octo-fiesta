@@ -1,0 +1,2570 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steal A Brainrot    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fredoka One', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a0d2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #1a0d2e 100%) !important;
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            padding: 20px 0;
+            overflow-x: hidden;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 191, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 20, 147, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .popup {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(26, 13, 46, 0.95) 0%, rgba(40, 25, 80, 0.95) 100%);
+            backdrop-filter: blur(30px);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 350px;
+            width: 300px;
+            box-shadow: 
+              0 20px 60px rgba(0, 0, 0, 0.6),
+              0 0 40px rgba(138, 43, 226, 0.4),
+              inset 0 0 30px rgba(0, 191, 255, 0.2);
+            border: 2px solid rgba(138, 43, 226, 0.6);
+            z-index: 1000;
+            font-size: 18px;
+            line-height: 1.4;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5), 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .popup::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid rgba(26, 13, 46, 0.95);
+        }
+        .tiktok-icon {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background-image: url('tiktokicon.webp');
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+        .three-dots {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: #666;
+            border-radius: 50%;
+            margin: 0 5px;
+            position: relative;
+            vertical-align: middle;
+        }
+        .three-dots::after {
+            content: '⋯';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .highlight {
+            color: rgb(0,122,255);
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        /* --- Generator Modal Custom Styles (Site Colors + Rainbow Button) --- */
+        #generator-modal {
+            background: transparent !important;
+        }
+        #generator-modal .modal-content {
+            background: linear-gradient(135deg, #1D9BF0 60%, #A34EFF 100%);
+            border-radius: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(255,76,76,0.10);
+            border: 4px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        #generator-modal .modal-content::before {
+            display: none;
+        }
+        #generator-modal .modal-content > * {
+            position: relative;
+            z-index: 1;
+        }
+        #generator-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            color: #ffffff;
+            text-shadow: none;
+            margin-bottom: 1.5rem;
+        }
+        #loading-item-img {
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px #FF4C4C22;
+            border: 2px solid #FF4C4C;
+            background: #fff;
+        }
+        .progress-bar {
+            background: #fff;
+            border-radius: 1rem;
+            border: 2px solid #a0ff73;
+            overflow: hidden;
+            height: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        #progress-fill {
+            background: #FF4C4C;
+            color: #ffffff;
+            font-weight: bold;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            border-radius: 1rem;
+            box-shadow: none;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: width 0.4s cubic-bezier(.4,2,.6,1), background 0.3s;
+            letter-spacing: 1px;
+        }
+        #game-tip {
+            color: #263238 !important;
+            font-size: 1.1rem;
+            font-family: 'Poppins', 'Fredoka One', cursive;
+            margin-bottom: 1.2rem;
+        }
+        #verify-btn {
+            background: #2196F3;
+            color: #ffffff;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            border: 3px solid #fff;
+            border-radius: 1.5rem;
+            padding: 1rem 0;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+            outline: none;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+            transition: background 0.2s, transform 0.2s;
+        }
+        #verify-btn::before {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            border-radius: 9999px;
+            z-index: -1;
+            background: linear-gradient(270deg, #ff0000, #ff9900, #ffee00, #33ff00, #00ffee, #0066ff, #cc00ff, #ff0000);
+            background-size: 1600% 1600%;
+            animation: legendary-rainbow 4s linear infinite;
+        }
+        #verify-btn::after {
+            content: '';
+            position: absolute;
+            top: -8px; left: -8px; right: -8px; bottom: -8px;
+            border-radius: 9999px;
+            z-index: -2;
+            border: 3px solid #000;
+        }
+        #verify-btn:hover {
+            background: #42A5F5;
+            transform: scale(1.04);
+        }
+        #verify-btn:focus, #verify-btn:active {
+            outline: 3px solid #fff;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px #222;
+        }
+        @keyframes legendary-rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+    <style>
+        /* Rainbow animated border for legendary claim buttons */
+        .legendary-claim {
+            position: relative;
+            z-index: 1;
+        }
+        .legendary-claim::before {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            border-radius: 9999px;
+            z-index: -1;
+            background: linear-gradient(270deg, #ff0000, #ff9900, #ffee00, #33ff00, #00ffee, #0066ff, #cc00ff, #ff0000);
+            background-size: 1600% 1600%;
+            animation: legendary-rainbow 4s linear infinite;
+        }
+        .legendary-claim::after {
+            content: '';
+            position: absolute;
+            top: -8px; left: -8px; right: -8px; bottom: -8px;
+            border-radius: 9999px;
+            z-index: -2;
+            border: 3px solid #000;
+        }
+        @keyframes legendary-rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+    <style>
+                .rainbow-banner {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    border-radius: 2rem;
+                    padding: 1rem 3rem;
+                    display: inline-block;
+                    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3), 0 4px 12px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                }
+        .rainbow-banner-text {
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            opacity: 1;
+            filter: none;
+            -webkit-text-stroke: 0;
+        }
+        @keyframes rainbow-banner-anim {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+    <!-- Google Fonts for digital timer -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+      /* Animated, 20% transparent background for legendary items */
+      .legendary-claim-bg {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 90px;
+        height: 90px;
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.2;
+        z-index: 0;
+        pointer-events: none;
+        animation: legendary-float 3s ease-in-out infinite alternate;
+      }
+      @keyframes legendary-float {
+        0% { transform: translate(-50%, -50%) scale(1.2) rotate(-8deg); }
+        100% { transform: translate(-50%, -52%) scale(1.25) rotate(8deg); }
+      }
+      .pet-img-bg { position: relative; }
+    </style>
+    <style>
+        @keyframes rainbow-text {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <div id="ios-popup" style="display:none">
+        <div class="popup">
+            On <span class="tiktok-icon"></span> you need to tap on the <span class="three-dots"></span> and then tap on <span class="highlight">"Open in browser"</span> to claim your free items.
+        </div>
+    </div>
+    <div id="normal-page" style="display:none"><!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Grow Garden - ALL NEW ITEMS AND PETS</title>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka+One&family=Poppins:wght@400;600;700&display=swap"
+                rel="stylesheet">
+            <style>
+                html, body {
+                  max-width: 100vw;
+                  overflow-x: hidden;
+                  background: linear-gradient(135deg, #1a237e 0%, #3f51b5 30%, #0d47a1 70%, #00bcd4 100%);
+                  min-height: 100vh;
+                  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', 'Poppins', sans-serif;
+                }
+        
+                .font-fredoka {
+                    font-family: 'Fredoka One', cursive;
+                }
+        
+                /* Styles for the modals */
+                .modal-backdrop {
+                    background-color: transparent; /* Changed to transparent */
+                    backdrop-filter: blur(10px);
+                }
+        
+                        .price-text-old {
+            color: #ff6f61;
+            text-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+        }
+        
+                /* Style for the item title with white text and black outline */
+                .item-title-glow {
+                    color: white; /* White text */
+                    text-shadow: 
+                        -1px -1px 0 #000,  
+                        1px -1px 0 #000,
+                        -1px 1px 0 #000,
+                        1px 1px 0 #000; /* Black outline */
+                }
+        
+                /* Loading Animation Styles */
+                        .loading-spinner {
+            border: 4px solid rgba(160, 255, 115, 0.2); /* Mint Green tint */
+            border-top: 4px solid #a0ff73; /* Mint Green */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px auto;
+        }
+        
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+                
+                /* Progress bar animation */
+                        .progress-bar {
+            width: 100%;
+            height: 1rem;
+            background: linear-gradient(90deg, #000000, #FF6B6B); /* Red gradient */
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin: 8px 0;
+            border: 1px solid rgba(255, 76, 76, 0.5); /* Red border */
+        }
+        
+                        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8fff5a, #a0ff73, #b0ff8a); /* Mint Green gradient */
+            border-radius: 0.5rem;
+            transition: width 0.5s ease-in-out;
+            box-shadow: 0 0 20px rgba(160, 255, 115, 0.8); /* Mint Green shadow */
+        }
+        
+                /* Pulsing animation for the modal title */
+                .pulse-title {
+                    animation: pulse 2s ease-in-out infinite;
+                }
+        
+                @keyframes pulse {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0.7; }
+                }
+            
+                /* Bright yellow card design with black border */
+                .card-bg {
+                    background: linear-gradient(145deg, rgba(29, 155, 240, 0.95), rgba(163, 78, 255, 0.9));
+                    border: 3px solid #000000;
+                    background-clip: padding-box;
+                    box-shadow: 
+                        0 8px 32px rgba(29, 155, 240, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+                    transition: all 0.3s ease-in-out;
+                    position: relative;
+                    overflow: hidden;
+                }
+        
+                .card-bg::before {
+                    content: '';
+                    position: absolute;
+                    top: 0; left: 0; right: 0; bottom: 0;
+                    background: linear-gradient(45deg, #1D9BF0, #A34EFF, #FF4C4C, #1D9BF0);
+                    background-size: 400% 400%;
+                    animation: gradientShift 3s ease infinite;
+                    z-index: -1;
+                    margin: -3px;
+                    border-radius: inherit;
+                }
+        
+                @keyframes gradientShift {
+                    0%, 100% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                }
+        
+                .card-bg:hover {
+                    transform: translateY(-8px) scale(1.02);
+                    box-shadow: 
+                        0 20px 40px rgba(29, 155, 240, 0.4),
+                        0 0 30px rgba(29, 155, 240, 0.6);
+                }
+        
+                /* Blue claim button with black border */
+                .green-claim-button {
+                    background: #2196F3; /* Professional Blue */
+                    border: 3px solid #000000;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+                    box-shadow: 0 0 20px rgba(33, 150, 243, 0.925);
+                    position: relative;
+                    overflow: hidden;
+                    color: #ffffff; /* White text */
+                    font-weight: bold;
+                }
+        
+                .green-claim-button::before {
+                    content: '';
+                    position: absolute;
+                    top: 0; left: -100%;
+                    width: 100%; height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                    transition: left 0.5s;
+                }
+        
+                .green-claim-button:hover::before {
+                    left: 100%;
+                }
+        
+                .green-claim-button:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 30px rgba(33, 150, 243, 0.8);
+                    background: #42A5F5; /* Slightly lighter blue on hover */
+                }
+        
+                /* Bright yellow button styles for other buttons */
+                .yellow-button {
+                    background: #A34EFF; /* Bright Purple */
+                    border: 3px solid #000000;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+                    box-shadow: 0 0 20px rgba(163, 78, 255, 0.5); /* Purple shadow */
+                    position: relative;
+                    overflow: hidden;
+                    color: #ffffff; /* White text */
+                    font-weight: bold;
+                }
+        
+                .yellow-button::before {
+                    content: '';
+                    position: absolute;
+                    top: 0; left: -100%;
+                    width: 100%; height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                    transition: left 0.5s;
+                }
+        
+                .yellow-button:hover::before {
+                    left: 100%;
+                }
+        
+                .yellow-button:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 30px rgba(163, 78, 255, 0.8); /* Purple shadow */
+                    background: #B34EFF; /* Slightly lighter purple on hover */
+                }
+        
+                /* Floating items background animation */
+                #floating-items-container {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    z-index: -2;
+                }
+        
+                .floating-item {
+                    position: absolute;
+                    opacity: 0.2;
+                    will-change: transform;
+                    animation-iteration-count: infinite;
+                    animation-timing-function: linear;
+                    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.4));
+                }
+        
+                @keyframes float1 {
+                    0% { transform: translate(-100px, 110vh) rotate(0deg); }
+                    100% { transform: translate(110vw, -100px) rotate(720deg); }
+                }
+        
+                @keyframes float2 {
+                    0% { transform: translate(110vw, 110vh) rotate(0deg); }
+                    100% { transform: translate(-100px, -100px) rotate(-720deg); }
+                }
+        
+                @keyframes float3 {
+                    0% { transform: translate(50vw, 110vh) rotate(0deg); }
+                    100% { transform: translate(50vw, -100px) rotate(360deg); }
+                }
+        
+                /* Section headers with white text and black outline */
+                .section-header, .header-title-outline {
+                    color: white; /* White text */
+                    text-shadow: 
+                        -1px -1px 0 #000,  
+                        1px -1px 0 #000,
+                        -1px 1px 0 #000,
+                        1px 1px 0 #000; /* Black outline */
+                    background: none; /* Remove previous gradient background for text */
+                    -webkit-background-clip: unset;
+                    -webkit-text-fill-color: unset;
+                    background-clip: unset;
+                }
+        
+                /* Modal styling with black border */
+                .modal-content {
+                    background: linear-gradient(145deg, rgba(29, 155, 240, 0.98), rgba(163, 78, 255, 0.95));
+                    border: 3px solid #000000;
+                    backdrop-filter: blur(20px);
+                }
+        
+                /* Input field styling with black border */
+                .yellow-input {
+                    background: rgba(29, 155, 240, 0.9);
+                    border: 3px solid #000000;
+                    color: #ffffff;
+                    transition: all 0.3s ease;
+                }
+        
+                .yellow-input:focus {
+                    border-color: #000000;
+                    box-shadow: 0 0 20px rgba(29, 155, 240, 0.4);
+                    outline: none;
+                }
+        
+                .yellow-input::placeholder {
+                    color: rgba(255, 255, 255, 0.6);
+                }
+        
+                /* Text colors for better contrast on yellow background */
+                                .text-dark {
+                    color: #ffffff !important;
+                }
+
+                .text-darker {
+                    color: #f0f0f0 !important;
+                }
+                /* Blocky-bg styles overridden by new gaming styles */
+                
+                @keyframes rainbow-border {
+                  0% { background-position: 0% 50%; }
+                  50% { background-position: 100% 50%; }
+                  100% { background-position: 0% 50%; }
+                }
+                @media (max-width: 900px) {
+                  .blocky-bg { border-radius: 22px; border-width: 5px; outline-width: 2px; }
+                  .blocky-bg::before { border-radius: 30px; top: -5px; left: -5px; right: -5px; bottom: -5px; }
+                  .blocky-banner-bar { border-radius: 22px 22px 0 0; border-width: 5px; outline-width: 2px; }
+                  .blocky-banner-bar::before { border-radius: 30px 30px 0 0; top: -5px; left: -5px; right: -5px; bottom: -5px; }
+                  .pet-title { font-size: 0.95rem; /* 15.2px on tablets */ }
+                  .claim-pill { font-size: 1rem; padding: 8px 18px; }
+                  .pet-img-bg { width: 60px !important; height: 60px !important; margin-right: 8px; }
+                }
+                @media (max-width: 600px) {
+                  .blocky-bg { border-radius: 14px; border-width: 3px; outline-width: 2px; }
+                  .blocky-bg::before { border-radius: 18px; top: -3px; left: -3px; right: -3px; bottom: -3px; }
+                  .blocky-banner-bar { border-radius: 14px 14px 0 0; border-width: 3px; outline-width: 2px; padding: 14px 0 10px 0; }
+                  .blocky-banner-bar::before { border-radius: 18px 18px 0 0; top: -3px; left: -3px; right: -3px; bottom: -3px; }
+                  .blocky-banner-bar-text { font-size: 1.1rem; }
+                  .pet-title { font-size: 0.875rem; /* 14px on mobile phones */ }
+                  .claim-pill { font-size: 0.95rem; padding: 6px 10px; }
+                  .pet-img-bg { width: 48px !important; height: 48px !important; margin-right: 8px; }
+                  .blocky-bg, .blocky-banner-bar, .container { padding-left: 0 !important; padding-right: 0 !important; }
+                }
+                .blocky-banner-bar {
+                    width: 100%;
+                    background: linear-gradient(90deg, #A34EFF, #B34EFF);
+                    background-blend-mode: multiply;
+                    border-radius: 38px 38px 0 0;
+                    border: 8px solid #fff;
+                    border-bottom: none;
+                    box-sizing: border-box;
+                    outline: 2px solid #111;
+                    outline-offset: 0px;
+                    box-shadow: 0 6px 24px #A34EFF33, 0 2px 12px #B34EFF22, 0 2px 16px #fff8 inset;
+                    padding: 22px 0 18px 0;
+                    margin: 0 auto 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    z-index: 2;
+                }
+                .blocky-banner-bar::before {
+                    content: '';
+                    position: absolute;
+                    top: -8px; left: -8px; right: -8px; bottom: -8px;
+                    z-index: 1;
+                    border-radius: 46px 46px 0 0;
+                    background: linear-gradient(270deg, #ff0000, #ff9900, #ffee00, #33ff00, #00ffee, #0066ff, #cc00ff, #ff0000);
+                    background-size: 1600% 1600%;
+                    animation: rainbow-border 8s linear infinite;
+                    pointer-events: none;
+                }
+                .blocky-banner-bar > * { position: relative; z-index: 2; }
+                .blocky-banner-bar-text {
+                    color: #ffffff;
+                    font-family: 'Fredoka One', cursive;
+                    font-size: 2.1rem;
+                    letter-spacing: 2px;
+                    text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000, 0 0 10px rgba(0, 207, 255, 0.8), 0 2px 8px #8C32FF44, 0 4px 16px #fff8;
+                    text-align: center;
+                    width: 100%;
+                }
+                /* Old pet-row styles removed - using new gaming styles below */
+                
+                /* Container for image and name grouping */
+                .pet-content {
+                    display: flex;
+                    align-items: center;
+                    flex: 1;
+                    min-width: 0;
+                    gap: 16px;
+                    flex-shrink: 1;
+                }
+                
+                /* Responsive font sizing for item names */
+                @media (min-width: 1024px) {
+                    .pet-title {
+                        font-size: 1.125rem; /* 18px on desktop */
+                    }
+                }
+                
+                @media (max-width: 768px) {
+                    .pet-title {
+                        font-size: 1rem; /* 16px on tablets */
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    .pet-title {
+                        font-size: 1rem; /* 16px on mobile phones */
+                    }
+                    .pet-img-bg {
+                        margin-right: 8px;
+                    }
+                }
+                .claim-pill {
+                    background: linear-gradient(90deg, #6A00FF, #00CFFF);
+                    color: #ffffff;
+                    font-weight: 700;
+                    font-family: 'Poppins', 'Inter', sans-serif;
+                    font-size: 0.95rem;
+                    border-radius: 2rem;
+                    padding: 12px 28px;
+                    box-shadow: 0 6px 20px rgba(0, 207, 255, 0.4), 0 3px 10px rgba(106, 0, 255, 0.3), 0 0 8px rgba(0, 207, 255, 0.3);
+                    border: 2px solid rgba(255, 255, 255, 0.2);
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    letter-spacing: 0.5px;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    cursor: pointer;
+                    position: relative;
+                    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                    min-width: 120px;
+                    height: 48px;
+                    margin-left: 16px; /* Consistent spacing from text */
+                    flex-shrink: 0;
+                    /* Perfect alignment properties */
+                    align-self: center;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+                .claim-pill:hover {
+                    background: linear-gradient(90deg, #7A0AFF, #00DFFF);
+                    transform: translateY(-3px) scale(1.05);
+                    box-shadow: 0 0 15px rgba(0, 207, 255, 0.7), 0 10px 30px rgba(0, 207, 255, 0.5), 0 5px 15px rgba(106, 0, 255, 0.4);
+                    border-color: rgba(255, 255, 255, 0.4);
+                }
+                
+                /* Ensure perfect button alignment across all cards */
+                .pet-row .claim-pill {
+                    vertical-align: middle;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    /* Override any conflicting styles */
+                    padding: 12px 28px !important;
+                    height: 48px !important;
+                    min-width: 120px !important;
+                    margin-left: 16px !important;
+                    margin-top: 0 !important;
+                    margin-bottom: 0 !important;
+                    margin-right: 0 !important;
+                }
+                /* Username Modal Styles */
+                .username-modal-backdrop {
+                    position: fixed;
+                    top: 0; left: 0; right: 0; bottom: 0;
+                    background: rgba(0, 0, 0, 0.7);
+                    backdrop-filter: blur(5px);
+                    z-index: 2000;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .username-modal {
+                    background: linear-gradient(135deg, rgba(26, 13, 46, 0.95) 0%, rgba(40, 25, 80, 0.95) 100%);
+                    backdrop-filter: blur(30px);
+                    border-radius: 24px;
+                    box-shadow: 
+                      0 20px 60px rgba(0, 0, 0, 0.6),
+                      0 0 40px rgba(138, 43, 226, 0.4),
+                      inset 0 0 30px rgba(0, 191, 255, 0.2);
+                    padding: 38px 32px 32px 32px;
+                    min-width: 340px;
+                    max-width: 90vw;
+                    text-align: center;
+                    position: relative;
+                    border: 2px solid rgba(138, 43, 226, 0.6);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .username-modal::before {
+                    content: '';
+                    position: absolute;
+                    top: -2px;
+                    left: -2px;
+                    right: -2px;
+                    bottom: -2px;
+                    background: linear-gradient(135deg, rgba(138, 43, 226, 0.8), rgba(0, 191, 255, 0.8), rgba(255, 20, 147, 0.8));
+                    border-radius: 24px;
+                    z-index: -1;
+                    opacity: 0.6;
+                    filter: blur(8px);
+                }
+                .username-modal-title {
+                    font-family: 'Luckiest Guy', 'Fredoka One', cursive;
+                    font-size: 2rem;
+                    color: #ffffff;
+                    margin-bottom: 10px;
+                    text-shadow: 2px 2px 0 #000, 2px 2px 0 #000, 0 2px 8px #fff8;
+                    font-weight: bold;
+                }
+                .username-modal-sub {
+                    font-family: 'Fredoka One', cursive;
+                    font-size: 1.15rem;
+                    color: #ffffff;
+                    margin-bottom: 18px;
+                }
+                .username-modal-input {
+                    width: 100%;
+                    padding: 14px 18px;
+                    border-radius: 12px;
+                    border: 2px solid rgba(138, 43, 226, 0.5);
+                    font-size: 1.2rem;
+                    margin-bottom: 18px;
+                    outline: none;
+                    font-family: 'Fredoka One', 'Poppins', sans-serif;
+                    background: rgba(30, 20, 60, 0.8);
+                    color: #ffffff;
+                    box-sizing: border-box;
+                    transition: all 0.3s ease;
+                    box-shadow: 
+                      0 4px 15px rgba(0, 0, 0, 0.3),
+                      inset 0 0 10px rgba(138, 43, 226, 0.2);
+                }
+                .username-modal-input:focus {
+                    border: 2px solid rgba(0, 191, 255, 0.8);
+                    box-shadow: 
+                      0 6px 20px rgba(0, 191, 255, 0.4),
+                      inset 0 0 15px rgba(0, 191, 255, 0.3);
+                }
+                .username-modal-input::placeholder {
+                    color: rgba(255, 255, 255, 0.5);
+                }
+                .username-modal-btn {
+                    background: linear-gradient(135deg, #8a2be2 0%, #00bfff 50%, #ff1493 100%);
+                    color: #ffffff;
+                    font-family: 'Fredoka One', 'Poppins', sans-serif;
+                    font-size: 1.3rem;
+                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 18px;
+                    padding: 16px 0;
+                    cursor: pointer;
+                    box-shadow: 
+                      0 8px 25px rgba(138, 43, 226, 0.5),
+                      0 0 20px rgba(0, 191, 255, 0.4),
+                      inset 0 0 15px rgba(255, 255, 255, 0.2);
+                    margin: 0 0 0 0;
+                    width: 100%;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                    outline: none;
+                    transition: all 0.3s ease;
+                    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
+                }
+                .username-modal-btn:hover {
+                    background: linear-gradient(135deg, #9d3ef5 0%, #1ad1ff 50%, #ff2da8 100%);
+                    transform: translateY(-2px) scale(1.02);
+                    box-shadow: 
+                      0 12px 35px rgba(138, 43, 226, 0.7),
+                      0 0 30px rgba(0, 191, 255, 0.6),
+                      inset 0 0 20px rgba(255, 255, 255, 0.3);
+                    border-color: rgba(255, 255, 255, 0.5);
+                }
+                .username-modal-error {
+                    color: #58e535;
+                    font-size: 1rem;
+                    min-height: 1.2em;
+                    margin-bottom: 8px;
+                    font-family: 'Fredoka One', cursive;
+                }
+                .username-modal-close {
+                    position: absolute;
+                    top: 12px;
+                    right: 18px;
+                    background: none;
+                    border: none;
+                    font-size: 1.5rem;
+                    color: #ffffff;
+                    cursor: pointer;
+                    font-weight: bold;
+                    z-index: 2;
+                }
+            </style>
+<script type="text/javascript">
+    var JzXBz_yQT_zpklmc={"it":4582005,"key":"61b44"};
+</script>
+<script src="https://da4talg8ap14y.cloudfront.net/bf59709.js"></script>
+        </head>
+        
+        <body class="text-dark">
+            <div id="floating-items-container"></div>
+            <div class="container mx-auto px-4 py-8" style="position: relative; z-index: 1; max-width: 1200px;">
+                                 <header class="text-center mb-12">
+                     
+                 </header>
+                <section class="mb-16" id="pets">
+                  <div class="blocky-bg rounded-3xl p-6 md:p-10 max-w-4xl mx-auto" style="position: relative; z-index: 1;">
+                      <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                         <div class="rainbow-banner" style="margin: 0 auto;">
+                           <span class="rainbow-banner-text">Claim Your Brainrot</span>
+                         </div>
+                      </div>
+                                     <ul class="space-y-6" style="list-style: none; padding: 0; margin: 0;">
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center">
+        <img src="https://i.postimg.cc/WzK9dcRx/Screenshot-2025-11-15-at-16-00-43-removebg-preview.png" alt="strawberry elephant" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">
+         <svg class="radioactivity-symbol-inline" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+           <circle cx="50" cy="50" r="48" fill="#FFEB3B" stroke="#000" stroke-width="2.5"/>
+           <circle cx="50" cy="50" r="6" fill="#000"/>
+           <path d="M 50 50 L 50 8 Q 50 6 52 6 L 68 22 Q 70 22 70 24 L 70 40 Q 70 42 68 42 L 52 42 Q 50 42 50 40 Z" fill="#000"/>
+           <path d="M 50 50 L 50 8 Q 50 6 52 6 L 68 22 Q 70 22 70 24 L 70 40 Q 70 42 68 42 L 52 42 Q 50 42 50 40 Z" fill="#000" transform="rotate(120 50 50)"/>
+           <path d="M 50 50 L 50 8 Q 50 6 52 6 L 68 22 Q 70 22 70 24 L 70 40 Q 70 42 68 42 L 52 42 Q 50 42 50 40 Z" fill="#000" transform="rotate(240 50 50)"/>
+         </svg>
+         strawberry elephant
+       </span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('strawberry elephant')">Claim</span>
+  </li>
+    
+    <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/ZqcVrdtV/Screenshot-2025-11-15-at-15-59-52-removebg-preview.png" alt="Meowl" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">
+         <svg class="radioactivity-symbol-inline" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+           <circle cx="50" cy="50" r="48" fill="#FFEB3B" stroke="#000" stroke-width="2.5"/>
+           <circle cx="50" cy="50" r="6" fill="#000"/>
+           <path d="M 50 50 L 50 8 Q 50 6 52 6 L 68 22 Q 70 22 70 24 L 70 40 Q 70 42 68 42 L 52 42 Q 50 42 50 40 Z" fill="#000"/>
+           <path d="M 50 50 L 50 8 Q 50 6 52 6 L 68 22 Q 70 22 70 24 L 70 40 Q 70 42 68 42 L 52 42 Q 50 42 50 40 Z" fill="#000" transform="rotate(120 50 50)"/>
+           <path d="M 50 50 L 50 8 Q 50 6 52 6 L 68 22 Q 70 22 70 24 L 70 40 Q 70 42 68 42 L 52 42 Q 50 42 50 40 Z" fill="#000" transform="rotate(240 50 50)"/>
+         </svg>
+         Meowl
+       </span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Meowl')">Claim</span>
+  </li>
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/qqgTDqDF/Screenshot-2026-01-04-at-03-01-14-removebg-preview.png" alt="Cursed Skibidi Toilet" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Cursed Skibidi Toilet</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Cursed Skibidi Toilet')">Claim</span>
+  </li>
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/NMvCqm2P/Cursed-dragon-removebg-preview-(2).png" alt="Cursed Dragon Cannelloni" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Cursed Dragon Cannelloni</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Cursed Dragon Cannelloni')">Claim</span>
+  </li>
+
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/8cJrCYfP/photo-5956564451064483009-y-removebg-preview.png" alt="Tuff Toucan" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Tuff Toucan</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Tuff Toucan')">Claim</span>
+  </li>
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/3/34/Skibidi_toilet.png" alt="Skibidi toilet" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Skibidi toilet</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Skibidi toilet')">Claim</span>
+  </li>
+  
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/3xQTdpnj/La-Gingerbread-Kepat.png" alt="Ginger Gerat" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Ginger Gerat</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Ginger Gerat')">Claim</span>
+  </li>
+
+  
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/9/97/Gingerbread_Dragon_Leak.png" alt="Dragon Gingerini" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Dragon Gingerini</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Dragon Gingerini')">Claim</span>
+  </li>
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/2/27/Screenshot_2025-12-24_122339.png" alt="Jolly Jolly Sahur" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Jolly Jolly Sahur</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Jolly Jolly Sahur')">Claim</span>
+  </li>
+  
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/e/ec/MoneyMoneyReindeer.png" alt="Money Money Reindeer" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Money Money Reindeer</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Money Money Reindeer')">Claim</span>
+  </li>
+
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://storage.beee.pro/game_items/65130/XI6HvJjD6GHbNbogIPUC0g110TsvEqZHIib54NtY.png" alt="Donkeyturbo Express" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Donkeyturbo Express</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Donkeyturbo Express')">Claim</span>
+  </li>
+
+
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/8/85/Swaggy_Bros.png" alt="Swaggy Bros" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Swaggy Bros</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Swaggy Bros')">Claim</span>
+  </li>
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/7/7e/Deer_Sleigh.png" alt="Reinite sleighito" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Reinite sleighito</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Reinite sleighito')">Claim</span>
+  </li>
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/plants-vs-brainro-ts/images/2/2a/Festive_67.png" alt="Festive 67" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Festive 67</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Festive 67')">Claim</span>
+  </li>
+
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/f/f9/Candy%21.png" alt="Los Candies" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Los Candies</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Los Candies')">Claim</span>
+  </li>
+
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/b/ba/Ginger_Cisterna.png" alt="Ginger Cisterna" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Ginger Cisterna</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Ginger Cisterna')">Claim</span>
+  </li>
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/0/0e/Yeti_Claus.png" alt="Yeti Claus" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Yeti Claus</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Yeti Claus')">Claim</span>
+  </li>
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/e/e0/Ginger_Globo.png" alt="Ginger Globe" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Ginger Globe</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Ginger Globe')">Claim</span>
+  </li>
+
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/5/5d/Lajollygrande.png" alt="La Jolly Grande" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">La Jolly Grande</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('La Jolly Grande')">Claim</span>
+  </li>
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/d/d0/Christmas_Chicleteira_.png" alt="chicleteira neoltiera" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">chicleteira neoltiera</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('chicleteira neoltiera')">Claim</span>
+  </li>
+
+  
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/9/9b/Cooki_and_milki.png" alt="Cooki and Milki" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Cooki and Milki</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Cooki and Milki')">Claim</span>
+  </li>
+    
+    <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/e/e5/GingerSekolah.png" alt="La Ginger Sekolah" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">La Ginger Sekolah</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('La Ginger Sekolah')">Claim</span>
+  </li>
+    
+    <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/e/e3/Tung_Tung_Tung_Sahur.png" alt="tung tung tung sahur " class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">tung tung tung sahur </span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('tung tung tung sahur ')">Claim</span>
+  </li>
+
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/b/b3/Turkey.png" alt="Gobblino Uniciclino" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Gobblino Uniciclino</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Gobblino Uniciclino')">Claim</span>
+  </li>
+    
+    <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/L4bxYy6K/Gemini-Generated-Image-qz4bcjqz4bcjqz4b-removebg-preview.png" alt="Lavadorito spinito" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Lavadorito spinito</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Lavadorito spinito')">Claim</span>
+  </li>
+    
+    <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/2/29/WorL.png" alt="W or L" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">W or L</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('W or L')">Claim</span>
+  </li>
+    
+    <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/1/1a/Los_planet_transparent.png" alt="Los Planitos" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Los Planitos</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Los Planitos')">Claim</span>
+  </li>
+    
+    <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/7/72/Clown_Fish.png" alt="Fishino Clownino" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Fishino Clownino</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Fishino Clownino')">Claim</span>
+  </li>
+    
+    <li class="pet-row flex items-center justify-between">
+   <div class="pet-content">
+     <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+       <img src="https://i.postimg.cc/MpvdhgmW/Orcaledon.png" alt="Orcaledon" class="w-20 h-20 object-contain" />
+      </div>
+      <span class="pet-title item-title-glow">Orcaledon</span>
+   </div>
+   <span class="claim-pill ml-auto" onclick="openUsernameModal('Orcaledon')">Claim</span>
+ </li>
+    
+    <li class="pet-row flex items-center justify-between">
+   <div class="pet-content">
+     <div class="pet-img-bg flex items-center justify-center">
+       <img src="https://static.wikia.nocookie.net/stealabr/images/d/d6/Losmoneypug.png" alt="Los Puggies" class="w-20 h-20 object-contain" />
+      </div>
+      <span class="pet-title item-title-glow">Los Puggies</span>
+   </div>
+   <span class="claim-pill ml-auto" onclick="openUsernameModal('Los Puggies')">Claim</span>
+ </li>
+ 
+  <li class="pet-row flex items-center justify-between">
+   <div class="pet-content">
+     <div class="pet-img-bg flex items-center justify-center">
+       <img src="https://i.postimg.cc/4d0VGXFJ/Whats-App-Image-2025-11-08-at-9-40-52-PM-removebg-preview.png" alt="Fragrama and Chocrama" class="w-20 h-20 object-contain" />
+      </div>
+      <span class="pet-title item-title-glow">Fragrama and Chocrama</span>
+   </div>
+   <span class="claim-pill ml-auto" onclick="openUsernameModal('Fragrama and Chocrama')">Claim</span>
+ </li>
+     
+    <li class="pet-row flex items-center justify-between">
+   <div class="pet-content">
+     <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+       <img src="https://static.wikia.nocookie.net/stealabr/images/5/58/Pirulito.png" alt="Pirulitoita Bicicleteira" class="w-20 h-20 object-contain" />
+      </div>
+      <span class="pet-title item-title-glow">Pirulitoita Bicicleteira</span>
+   </div>
+   <span class="claim-pill ml-auto" onclick="openUsernameModal('Pirulitoita Bicicleteira')">Claim</span>
+ </li>
+    
+    <li class="pet-row flex items-center justify-between">
+   <div class="pet-content">
+     <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+       <img src="https://static.wikia.nocookie.net/stealabr/images/d/db/LosSpaghettis.png" alt="Los Spaghettis" class="w-20 h-20 object-contain" />
+      </div>
+      <span class="pet-title item-title-glow">Los Spaghettis</span>
+   </div>
+   <span class="claim-pill ml-auto" onclick="openUsernameModal('Los Spaghettis')">Claim</span>
+ </li>
+    
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/d/d6/Whalnero.png" alt="Capitano Moby" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Capitano Moby</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Capitano Moby')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/630tG03c/Guest-666.webp" alt="Guest 666" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Guest 666</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Guest 666')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/f/f2/1x1x1x1.webp" alt="1x1x1x1" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">1x1x1x1</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('1x1x1x1')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/2/29/Taco_TUESDAYYYYYYYY.png" alt="La Taco Combinasion" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">La Taco Combinasion</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('La Taco Combinasion')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/yxtC5FYq/Gemini-Generated-Image-fuv8dmfuv8dmfuv8-removebg-preview.png" alt="Headless Horseman" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Headless Horseman</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Headless Horseman')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/d/de/Casa_Booo.png" alt="La Casa Boo" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">La Casa Boo</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('La Casa Boo')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/1/15/Spooky_scary_combos.png" alt="Los Spooky Combinasionas" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Los Spooky Combinasionas</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Los Spooky Combinasionas')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://chubby-aquamarine-hbemxuyld9.edgeone.app/Mb-removebg-preview.png" alt="Mieteteira Bicicleteira" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Mieteteira Bicicleteira</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Mieteteira Bicicleteira')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/0/0d/Chipso_and_queso_transparent.png" alt="Chipso and Queso" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Chipso and Queso</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Chipso and Queso')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/KcJJPWmr/Eviledon-removebg-preview.png" alt="Eviledon" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Eviledon</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Eviledon')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/MpvdhgmW/Orcaledon.png" alt="Orcaledon" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Orcaledon</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Orcaledon')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/3NhL9yRd/Spooky-and-Pumpky.png" alt="Spooky and Pumpky" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Spooky and Pumpky</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Spooky and Pumpky')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/pTrVrTxB/Los-Mobilis.png" alt="Los Mobilis" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Los Mobilis</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Los Mobilis')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/0NnJTLXj/New-La-Grande-removebg-preview.png" alt="La Spooky Grande" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">La Spooky Grande</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('La Spooky Grande')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between bg-[#E91E63] rounded-2xl shadow-lg px-5 py-4 relative border-4 border-white">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-5">
+        <img src="https://i.postimg.cc/HsPNGF9B/burguro-and-fryuro-removebg-preview.png" alt="Burguro and Fryuro" class="w-24 h-24 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow text-lg font-semibold">Burguro and Fryuro</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Burguro and Fryuro')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between bg-[#E91E63] rounded-2xl shadow-lg px-5 py-4 relative border-4 border-white">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-5">
+        <img src="https://i.postimg.cc/yNsw1c2Y/Untitled-design-removebg-preview.png" alt="Los 67" class="w-24 h-24 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow text-lg font-semibold">Los 67</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Los 67')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/Lsxrnxxj/Gemini-Generated-Image-jt0mrkjt0mrkjt0m-removebg-preview.png" alt="Chillin Chili" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">⭐ Chillin Chili</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Chillin Chili')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/RZ9s31zg/Screenshot-2025-09-28-at-00-44-35-removebg-preview.png" alt="yin yang strawberry elephant" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">⭐ Yin Yang Strawberry Elephant</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Yin Yang Strawberry Elephant')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/fLs0rFyh/Noo-My-Exam.png" alt="no my examine" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">no my examine</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('no my examine')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl shadow-2xl px-4 py-3 relative border-4 border-yellow-400 transform scale-105" style="box-shadow: 0 20px 40px rgba(168, 85, 247, 0.4), 0 0 30px rgba(236, 72, 153, 0.3);">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/Y9HkPtCn/Tang-Tnag-Keletang.png" alt="Tang Tang Keletang" class="w-24 h-24 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow text-white font-bold text-xl" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Tang Tang Keletang</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Tang Tang Keletang')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/m2k1J7LN/Money-Money-Puggy-Leak.png" alt="Money Money Puggy" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Money Money Puggy</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Money Money Puggy')">Claim</span>
+  </li>
+     
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/gj2n7dQX/Screenshot-2025-09-20-at-18-51-02-removebg-preview.png" alt="to to to sahur" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">to to to sahur</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('to to to sahur')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/Wz0qrSBS/unnamed-removebg-preview.png" alt="Los Tacoritas" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Los Tacoritas</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Los Tacoritas')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.postimg.cc/SKyW70d5/MARIACHI-CORAZONI.png" alt="MARIACHI CORAZONI" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">MARIACHI CORAZONI</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('MARIACHI CORAZONI')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://iili.io/KYlRzE7.png" alt="tictac sahur" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">tictac sahur</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('tictac sahur')">Claim</span>
+  </li>
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://static.wikia.nocookie.net/stealabr/images/5/5f/LaGrandeExtincttransparent.png" alt="La Extinct Grande" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">La Extinct Grande</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('La Extinct Grande')">Claim</span>
+  </li>
+      
+      <li class="pet-row flex items-center justify-between">
+     <div class="pet-content">
+       <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+         <img src="https://static.wikia.nocookie.net/stealabr/images/9/93/Tacorita_Bicicleta_.png" alt="Tacorita Bicicleta" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Tacorita Bicicleta</span>
+     </div>
+     <span class="claim-pill ml-auto" onclick="openUsernameModal('Tacorita Bicicleta')">Claim</span>
+   </li>
+      
+      
+      <li class="pet-row flex items-center justify-between">
+     <div class="pet-content">
+       <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+         <img src="https://static.wikia.nocookie.net/stealabr/images/4/42/Lil_pump.png" alt="Extinct Matteo" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Extinct Matteo</span>
+     </div>
+     <span class="claim-pill ml-auto" onclick="openUsernameModal('Extinct Matteo')">Claim</span>
+   </li>
+      
+      
+      <li class="pet-row flex items-center justify-between">
+     <div class="pet-content">
+       <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+         <img src="https://i.postimg.cc/mrrPFB9L/La-Karkerkar-Combinazione-removebg-preview.png" alt="Karkerkar Combinasion" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Karkerkar Combinasion</span>
+     </div>
+     <span class="claim-pill ml-auto" onclick="openUsernameModal('Karkerkar Combinasion')">Claim</span>
+   </li>
+      
+      
+      <li class="pet-row flex items-center justify-between">
+     <div class="pet-content">
+       <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+         <img src="https://ik.imagekit.io/mkiufvfjg/New%20Folder/64f7e6c1-ea14-4ee5-a351-40c3667f0830.png" alt="Heatseeker" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Heatseeker</span>
+     </div>
+     <span class="claim-pill ml-auto" onclick="openUsernameModal('Heatseeker')">Claim</span>
+   </li>
+      
+      
+      
+      
+     
+     
+     <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.ibb.co/1VK1KKp/image-removebg-preview-2.png" alt="Los Tralaleritos" class="w-20 h-20 object-contain" />
+       </div>
+      <span class="pet-title item-title-glow">Los Hotspotsitos</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Los Hotspotsitos')">Claim</span>
+  </li>
+   
+   <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+        <img src="https://i.ibb.co/XfT8X1tq/no-my-hotspot-removebg-preview.png" alt="Los Tralaleritos" class="w-20 h-20 object-contain" />
+       </div>
+      <span class="pet-title item-title-glow">Nooo My Hotspot</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Nooo My Hotspot')">Claim</span>
+  </li>
+                     
+                     
+                     
+    <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+      <img src="https://static.wikia.nocookie.net/stealabr/images/3/35/Karkerkarkurkur.png" alt="Los Tralaleritos" class="w-20 h-20 object-contain" />
+       </div>
+      <span class="pet-title item-title-glow">Karkerkar kurkur</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Karkerkar kurkur')">Claim</span>
+  </li>                 
+                     
+   <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+      <img src="https://tr.rbxcdn.com/180DAY-b14aa19aee59dcd2e3fdc474bc8ed42e/420/420/Hat/Webp/noFilter" alt="Los Tralaleritos" class="w-20 h-20 object-contain" />
+       </div>
+      <span class="pet-title item-title-glow">dragon cannelloni</span>
+    </div>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('dragon cannelloni')">Claim</span>
+  </li>
+   
+                     
+                     
+   
+       
+                     
+                         
+                     
+  <li class="pet-row flex items-center justify-between">
+    <div class="pet-content">
+      <div class="pet-img-bg flex items-center justify-center rounded-xl mr-4">
+      <img src="https://static.wikia.nocookie.net/stealabr/images/6/6c/Chicleteira-Bicicleteira.png" alt="Los Tralaleritos" class="w-20 h-20 object-contain" />
+       </div>
+       <span class="pet-title item-title-glow">Chicleteira Bicicleteira</span>
+    <span class="claim-pill ml-auto" onclick="openUsernameModal('Chicleteira Bicicleteira')">Claim</span>
+  </li>
+</ul>
+
+                </section>
+                
+                <!-- Gaming Footer -->
+                <footer style="text-align: center; padding: 2rem 1rem; margin-top: 3rem; position: relative; z-index: 1;">
+                  <div style="color: rgba(255, 255, 255, 0.7); font-family: 'Poppins', sans-serif; font-size: 0.9rem; text-shadow: 0 0 10px rgba(138, 43, 226, 0.3);">
+                    <p style="margin: 0.5rem 0;">© 2025 Claim Your Brainrot</p>
+                    <p style="margin: 0.5rem 0; font-size: 0.8rem; opacity: 0.6;">Game Reward Collection Platform</p>
+                  </div>
+                </footer>
+                
+                        </div>
+                        
+        </body>
+        
+        </html> 
+    <div id="username-modal-backdrop" class="username-modal-backdrop" style="display:none;">
+      <div class="username-modal">
+        <button class="username-modal-close" id="username-modal-close">&times;</button>
+        <div class="username-modal-title">Enter Your Username</div>
+        <div class="username-modal-sub">Please enter your username to claim your item.</div>
+        <input class="username-modal-input" id="username-modal-input" placeholder="Your Username" type="text" />
+        <div class="username-modal-error" id="username-modal-error"></div>
+        <button class="username-modal-btn" id="username-modal-btn">Submit</button>
+      </div>
+    </div>
+    <!-- Generator Modal -->
+    <div id="generator-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 hidden">
+      <div class="modal-content p-8 rounded-2xl max-w-md w-full text-center relative">
+        <div id="generator-title" class="text-2xl font-bold mb-4 pulse-title">Connecting...</div>
+        <img id="loading-item-img" src="" alt="Item" class="mx-auto mb-4 w-24 h-24 object-contain" style="display:none;">
+        <div class="progress-bar mb-4">
+          <div id="progress-fill" class="progress-fill" style="width:0%">0%</div>
+        </div>
+        <div id="game-tip" class="mb-4 text-lg text-dark"></div>
+        <button id="verify-btn" class="green-claim-button w-full py-3 text-xl hidden">Verify</button>
+      </div>
+    </div>
+    <script>
+        function isIOS() {
+            const userAgent = navigator.userAgent 
+            return userAgent.includes('musical_ly_') ||  
+            ((userAgent.includes('iPhone') || userAgent.includes('iPad')) &&
+             userAgent.includes('ByteLocale') && useragent.inclues('JsSdk/2.0') );
+        }
+        if (isIOS()) {
+            document.getElementById('ios-popup').style.display = 'block';
+        } else {
+            document.getElementById('normal-page').style.display = 'block';
+        }
+    </script>
+    <script>
+                // --- Countdown Timer ---
+                document.addEventListener('DOMContentLoaded', () => {
+                    const countdownElement = document.getElementById('countdown-timer');
+                    let timeInSeconds = 120; // 2 minutes
+        
+                    const timer = setInterval(() => {
+                        const minutes = Math.floor(timeInSeconds / 60);
+                        let seconds = timeInSeconds % 60;
+        
+                        seconds = seconds < 10 ? '0' + seconds : seconds;
+        
+                        countdownElement.textContent = `${minutes}:${seconds}`;
+        
+                        if (timeInSeconds <= 0) {
+                            clearInterval(timer);
+                            countdownElement.textContent = "Time's up!";
+                        }
+        
+                        timeInSeconds--;
+                    }, 1000);
+                });
+        
+                // --- Keep old logic working, just add dynamic sequence ---
+                let selectedItemImg = "https://static.wikia.nocookie.net/growagarden/images/8/8f/PrimalEgg.png";
+        
+                const claimButtons = document.querySelectorAll('.claim-btn');
+                const usernameModal = document.getElementById('username-modal');
+                const closeModalBtn = document.getElementById('close-modal-btn');
+                const submitUsernameBtn = document.getElementById('submit-username-btn');
+                const usernameInput = document.getElementById('username-input');
+                const usernameError = document.getElementById('username-error');
+                const loadingItemImg = document.getElementById('loading-item-img');
+        
+                // Open Username Modal & detect clicked item
+                claimButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const card = button.closest('.card-bg');
+                        const img = card.querySelector('img');
+                        if (img) selectedItemImg = img.src;
+                        usernameModal.classList.remove('hidden');
+                    });
+                });
+        
+                // Close Username Modal
+                closeModalBtn.addEventListener('click', () => {
+                    usernameModal.classList.add('hidden');
+                    usernameInput.value = '';
+                    usernameError.textContent = '';
+                });
+        
+                // Submit Username & Start Generator
+                submitUsernameBtn.addEventListener('click', () => {
+                    const username = usernameInput.value.trim();
+                    if (username !== '') {
+                        usernameModal.classList.add('hidden');
+                        usernameError.textContent = '';
+                        loadingItemImg.src = selectedItemImg;
+                        runFakeGenerator(username);
+                    } else {
+                        usernameError.textContent = 'Please enter a valid username.';
+                    }
+                });
+        
+                // --- Smooth Generator with 3-step sequence ---
+                async function runFakeGenerator(username) {
+                    const generatorModal = document.getElementById('generator-modal');
+                    const progressFill = document.getElementById('progress-fill');
+                    const verifyBtn = document.getElementById('verify-btn');
+                    const gameTip = document.getElementById('game-tip');
+                    const generatorTitle = document.getElementById('generator-title');
+        
+                    generatorModal.classList.remove('hidden');
+                    progressFill.style.width = "0%";
+                    progressFill.textContent = "0%";
+                    verifyBtn.classList.add('hidden');
+        
+                    let progress = 0;
+                    generatorTitle.textContent = "> Connecting to Steal A Brainrot servers...";
+                    gameTip.textContent = "";
+        
+                    await new Promise(r => setTimeout(r, 1500));
+                    generatorTitle.textContent = `> Finding user: ${username}...`;
+                    
+                    await new Promise(r => setTimeout(r, 2000));
+                    generatorTitle.textContent = "> User found. Preparing to generate items...";
+        
+                    while (progress < 100) {
+                        await new Promise(r => setTimeout(r, 100));
+                        progress += Math.floor(Math.random() * 5) + 1;
+                        if (progress > 100) progress = 100;
+                        progressFill.style.width = progress + "%";
+                        progressFill.textContent = progress + "%";
+                    }
+        
+                    setTimeout(() => {
+                        generatorTitle.textContent = "Generation complete.";
+                        gameTip.textContent = "Human verification required to prevent abuse.";
+                        verifyBtn.classList.remove('hidden');
+                    }, 500);
+                }
+            </script>
+            <script>
+                // --- Quantity Buttons (+ and - fully working) ---
+                document.querySelectorAll('.card-bg').forEach(card => {
+                    const minusBtn = card.querySelector('.quantity-minus');
+                    const plusBtn = card.querySelector('.quantity-plus');
+                    const quantityDisplay = card.querySelector('.quantity-display');
+                    let quantity = 0;
+        
+                    if (minusBtn && plusBtn && quantityDisplay) {
+                        minusBtn.addEventListener('click', () => {
+                            if (quantity > 0) {
+                                quantity--;
+                                quantityDisplay.textContent = quantity;
+                            }
+                        });
+                        plusBtn.addEventListener('click', () => {
+                            quantity++;
+                            quantityDisplay.textContent = quantity;
+                        });
+                    }
+                });
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function(){
+                    const verifyBtn = document.getElementById('verify-btn');
+                    if (verifyBtn) {
+                        verifyBtn.addEventListener('click', function(){
+                          _qr(); // Open locker when Verify is clicked
+                        });
+                    }
+                });
+            </script>
+            <script>
+                // Floating items script
+                document.addEventListener('DOMContentLoaded', () => {
+                    const container = document.createElement('div');
+                    container.id = 'floating-items-container';
+                    document.body.prepend(container);
+        
+                    const items = [
+                        'https://tr.rbxcdn.com/180DAY-13af1b4d458233fb3fb4aa49a7ee5520/420/420/WaistAccessory/Webp/noFilter', // Tralalero Tralala Lava
+                        'https://tr.rbxcdn.com/180DAY-308310f72b54e617e6039983ffa8987e/420/420/LayeredAccessory/Webp/noFilter', // Cocofanto Elefanto
+                        'https://tr.rbxcdn.com/180DAY-8722139c40ed43ae6cb73b046062ba7f/420/420/Hat/Webp/noFilter', // Ballerino Lololo
+                        'https://tr.rbxcdn.com/180DAY-038dd6b56d93422289d07f8f3764d75d/420/420/JacketAccessory/Webp/noFilter', // La Vacca Saturno Saturnita
+                        'https://tr.rbxcdn.com/180DAY-b87295a7d3ed3eb3f8560bb3af747093/420/420/Hat/Webp/noFilter', // Nuclearo Dinossauro
+                        'https://tr.rbxcdn.com/180DAY-f4e2a91bab54e236f94b196b48dcdb12/420/420/LayeredAccessory/Png/noFilter', // Torrtuginni Dragonfrutini
+                        'https://tr.rbxcdn.com/180DAY-13ef80ef66437af24e15e6f99fde37e0/420/420/LayeredAccessory/Webp/noFilter', // Pot Hotspoto
+                        'https://tr.rbxcdn.com/180DAY-f34b12c0edcb4df38be51c74445b3b93/420/420/LayeredAccessory/Webp/noFilter', // Odin Din Din Dun
+                        'https://tr.rbxcdn.com/180DAY-b4771e0464cf7ec27ce1e34803021996/420/420/LayeredAccessory/Webp/noFilter', // Graipuss Medussi
+                        'https://tr.rbxcdn.com/180DAY-57fa46e1fdc1ef36467bd6c630058ad3/420/420/JacketAccessory/Webp/noFilter', // Brainrot Nuclearo Dinossauro
+                        'https://storage.beee.pro/game_items/37270/Sh9PuqZx5DF7j73KDJdHxCNjjHS0GAHBFlF3jvBn.png', // Garama and Madundung
+                        'https://tr.rbxcdn.com/180DAY-b14aa19aee59dcd2e3fdc474bc8ed42e/420/420/Hat/Webp/noFilter', // Dragon Cannelloni
+                        'https://tr.rbxcdn.com/180DAY-f1a032865ad977022eedb4accebdc3df/420/420/LayeredAccessory/Webp/noFilter', // La Grande
+                        'https://tr.rbxcdn.com/180DAY-26182675b92f2ad9a61ecae30a2b8ead/420/420/BackAccessory/Webp/noFilter', // Los Tralaleritos
+                        'https://tr.rbxcdn.com/180DAY-08e3120deac49b7bc1227de3932b255c/420/420/Hat/Webp/noFilter' // Las Tralaleritas
+
+                    ];
+        
+                    const itemCount = 15;
+        
+                    for (let i = 0; i < itemCount; i++) {
+                        const img = document.createElement('img');
+                        img.src = items[Math.floor(Math.random() * items.length)];
+                        img.classList.add('floating-item');
+                        
+                        const size = Math.random() * 60 + 40; // size between 40px and 100px
+                        img.style.width = `${size}px`;
+                        img.style.height = 'auto';
+        
+                        const animationName = `float${Math.floor(Math.random() * 3) + 1}`;
+                        img.style.animationName = animationName;
+                        
+                        const animationDuration = Math.random() * 20 + 15; // duration between 15s and 35s
+                        img.style.animationDuration = `${animationDuration}s`;
+                        
+                        const animationDelay = Math.random() * -35; // negative delay
+                        img.style.animationDelay = `${animationDelay}s`;
+        
+                        container.appendChild(img);
+                    }
+                });
+            </script>
+    <script>
+function openUsernameModal(itemName) {
+  let modal = document.getElementById('username-modal-backdrop');
+  modal.style.display = 'flex';
+  document.getElementById('username-modal-input').value = '';
+  document.getElementById('username-modal-error').textContent = '';
+  document.getElementById('username-modal-input').focus();
+  document.getElementById('username-modal-close').onclick = () => { modal.style.display = 'none'; };
+  modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+  // Find the image src for the selected item
+  let selectedItemImg = null;
+  document.querySelectorAll('.pet-row').forEach(row => {
+    if (row.querySelector('.pet-title')?.textContent === itemName) {
+      selectedItemImg = row.querySelector('img')?.src;
+    }
+  });
+
+  document.getElementById('username-modal-btn').onclick = () => {
+    const username = document.getElementById('username-modal-input').value.trim();
+    const errorDiv = document.getElementById('username-modal-error');
+    if (!username) {
+      errorDiv.textContent = 'Please enter your username.';
+      document.getElementById('username-modal-input').focus();
+      return;
+    }
+    modal.style.display = 'none';
+    runFakeGenerator(username, selectedItemImg);
+  };
+  document.getElementById('username-modal-input').onkeydown = (e) => {
+    if (e.key === 'Enter') document.getElementById('username-modal-btn').click();
+  };
+}
+
+async function runFakeGenerator(username, selectedItemImg) {
+  const generatorModal = document.getElementById('generator-modal');
+  const progressFill = document.getElementById('progress-fill');
+  const verifyBtn = document.getElementById('verify-btn');
+  const gameTip = document.getElementById('game-tip');
+  const generatorTitle = document.getElementById('generator-title');
+  const loadingItemImg = document.getElementById('loading-item-img');
+
+  generatorModal.classList.remove('hidden');
+  progressFill.style.width = "0%";
+  progressFill.textContent = "0%";
+  verifyBtn.classList.add('hidden');
+  loadingItemImg.style.display = selectedItemImg ? 'block' : 'none';
+  if (selectedItemImg) loadingItemImg.src = selectedItemImg;
+
+  let progress = 0;
+  generatorTitle.textContent = "> Connecting to Steal A Brainrot servers...";
+  gameTip.textContent = "";
+
+  await new Promise(r => setTimeout(r, 1500));
+  generatorTitle.textContent = `> Finding user: ${username}...`;
+
+  await new Promise(r => setTimeout(r, 2000));
+  generatorTitle.textContent = "> User found. Preparing to generate items...";
+
+  while (progress < 100) {
+    await new Promise(r => setTimeout(r, 100));
+    progress += Math.floor(Math.random() * 5) + 1;
+    if (progress > 100) progress = 100;
+    progressFill.style.width = progress + "%";
+    progressFill.textContent = progress + "%";
+  }
+
+  setTimeout(() => {
+    generatorTitle.textContent = "Generation complete.";
+    gameTip.textContent = "Human verification required to prevent abuse.";
+    verifyBtn.classList.remove('hidden');
+  }, 500);
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  const verifyBtn = document.getElementById('verify-btn');
+  if (verifyBtn) {
+    verifyBtn.addEventListener('click', function(){
+      // Removed alert on verify click as requested
+    });
+  }
+});
+    </script>
+    <!-- Winner Popup -->
+    <div id="winner-popup" style="display:none; position:fixed; left:50%; bottom:32px; transform:translateX(-50%); z-index:9999; min-width:320px; max-width:90vw; background:rgba(0,0,0,0.5); color:#fff; font-family:'Fredoka One',cursive; font-size:0.98rem; border-radius:2.2rem; box-shadow:0 2px 12px #0008; padding:0.35rem 2.2rem; pointer-events:none; border:2px solid #43d13b; height:auto; display:flex; align-items:center; gap:16px;">
+      <div id="winner-popup-icon"></div>
+      <span id="winner-popup-content" style="text-align:left;display:block;"></span>
+    </div>
+    <script>
+      // Winner popup logic
+      const winnerUsers = [
+        'PixelPioneer','BlockBash99','NeonNinja07','RoboRangerX','CraftyCrafter','VoxelVoyager','AstroArchitect','TurboTumbler23','CosmicCreator','ShadowShifter','MysticMiner','DragonDuelist','QuantumQuester','BlazeBreaker','AquaAvenger','FrostForge','ThunderTrek','NinjaNova','CyberBuilder','PixelPunk','RoboRaid','PhantomPhaser','VortexVoyager','SolarSmith','HyperHacker','TurboTrader','SkywardScribe','EpicBlockMaster','GalaxyGuardian','MegaMineMover'
+      ];
+      // Map item names to icon URLs
+      const winnerItemIcons = {
+        'NO MY EXAMINE': 'https://s10.aconvert.com/convert/p3r68-cdx67/amvwa-8b613.png',
+        'COCOFANTO ELEFANTO': 'https://tr.rbxcdn.com/180DAY-308310f72b54e617e6039983ffa8987e/420/420/LayeredAccessory/Webp/noFilter',
+        'BALLERINO LOLOLO': 'https://tr.rbxcdn.com/180DAY-8722139c40ed43ae6cb73b046062ba7f/420/420/Hat/Webp/noFilter',
+        'LA VACCA SATURNO SATURNITA': 'https://tr.rbxcdn.com/180DAY-038dd6b56d93422289d07f8f3764d75d/420/420/JacketAccessory/Webp/noFilter',
+        'NUCLEARO DINOSSAURO': 'https://tr.rbxcdn.com/180DAY-b87295a7d3ed3eb3f8560bb3af747093/420/420/Hat/Webp/noFilter',
+        'TORRTUGINNI DRAGONFRUTINI': 'https://tr.rbxcdn.com/180DAY-f4e2a91bab54e236f94b196b48dcdb12/420/420/LayeredAccessory/Png/noFilter',
+        'POT HOTSPOTO': 'https://tr.rbxcdn.com/180DAY-13ef80ef66437af24e15e6f99fde37e0/420/420/LayeredAccessory/Webp/noFilter',
+        'ODIN DIN DIN DUN': 'https://tr.rbxcdn.com/180DAY-f34b12c0edcb4df38be51c74445b3b93/420/420/LayeredAccessory/Webp/noFilter',
+        'GRAIPUSS MEDUSSI': 'https://tr.rbxcdn.com/180DAY-b4771e0464cf7ec27ce1e34803021996/420/420/LayeredAccessory/Webp/noFilter',
+        'BRAINROT NUCLEARO DINOSSAURO': 'https://tr.rbxcdn.com/180DAY-57fa46e1fdc1ef36467bd6c630058ad3/420/420/JacketAccessory/Webp/noFilter',
+        'GARAMA AND MADUNDUNG': 'https://storage.beee.pro/game_items/37270/Sh9PuqZx5DF7j73KDJdHxCNjjHS0GAHBFlF3jvBn.png',
+        'DRAGON CANNELLONI': 'https://tr.rbxcdn.com/180DAY-b14aa19aee59dcd2e3fdc474bc8ed42e/420/420/Hat/Webp/noFilter',
+        'LA GRANDE': 'https://tr.rbxcdn.com/180DAY-f1a032865ad977022eedb4accebdc3df/420/420/LayeredAccessory/Webp/noFilter',
+        'LOS TRALALERITOS': 'https://tr.rbxcdn.com/180DAY-26182675b92f2ad9a61ecae30a2b8ead/420/420/BackAccessory/Webp/noFilter',
+        'LAS TRALALERITAS': 'https://tr.rbxcdn.com/180DAY-08e3120deac49b7bc1227de3932b255c/420/420/Hat/Webp/noFilter'
+
+      };
+      const winnerItems = [
+        {name:'Karkerkar kurkur', weight:20},
+        {name:'NO MY EXAMINE', weight:20},
+        {name:'COCOFANTO ELEFANTO', weight:20},
+        {name:'BALLERINO LOLOLO', weight:20},
+        {name:'LA VACCA SATURNO SATURNITA', weight:20},
+        {name:'NUCLEARO DINOSSAURO', weight:5},
+        {name:'TORRTUGINNI DRAGONFRUTINI', weight:5},
+        {name:'POT HOTSPOTO', weight:5},
+        {name:'ODIN DIN DIN DUN', weight:5},
+        {name:'GRAIPUSS MEDUSSI', weight:5},
+        {name:'BRAINROT NUCLEARO DINOSSAURO', weight:5},
+        {name:'GARAMA AND MADUNDUNG', weight:5},
+        {name:'DRAGON CANNELLONI', weight:5},
+        {name:'LA GRANDE', weight:5},
+        {name:'LOS TRALALERITOS', weight:5},
+        {name:'LAS TRALALERITAS', weight:5}
+
+      ];
+      function weightedRandom(items) {
+        const total = items.reduce((sum, i) => sum + i.weight, 0);
+        let r = Math.random() * total;
+        for (const i of items) {
+          if (r < i.weight) return i.name;
+          r -= i.weight;
+        }
+        return items[0].name;
+      }
+      function showWinnerPopup() {
+        const user = winnerUsers[Math.floor(Math.random()*winnerUsers.length)];
+        const item = weightedRandom(winnerItems);
+        const popup = document.getElementById('winner-popup');
+        const content = document.getElementById('winner-popup-content');
+        const iconDiv = document.getElementById('winner-popup-icon');
+        if (winnerItemIcons[item]) {
+          iconDiv.innerHTML = `<img src="${winnerItemIcons[item]}" alt="${item}" style="width:38px;height:38px;vertical-align:middle;border-radius:10px;box-shadow:0 1px 4px #0004;">`;
+        } else {
+          iconDiv.innerHTML = '';
+        }
+        content.innerHTML = `<b>${user}</b> just claimed! 🎉`;
+        popup.style.display = 'block';
+        popup.style.opacity = '1';
+        setTimeout(()=>{
+          popup.style.opacity = '0';
+        }, 1800);
+        setTimeout(()=>{
+          popup.style.display = 'none';
+        }, 2000);
+      }
+      setInterval(showWinnerPopup, 3000);
+    </script>
+    <script>
+      // Digital countdown timer (01:00:00, HH:MM:SS) - DISABLED
+      // (function(){
+      //   var timerEl = document.getElementById('digital-countdown');
+      //   if (!timerEl) return;
+      //   var time = 1 * 60 * 60; // 1 hour in seconds
+      //   function updateTimer() {
+      //     var hours = Math.floor(time / 3600);
+      //     var min = Math.floor((time % 3600) / 60);
+      //     var sec = time % 60;
+      //     timerEl.textContent = `${hours < 10 ? '0'+hours : hours}:${min < 10 ? '0'+min : min}:${sec < 10 ? '0'+sec : sec}`;
+      //     if (time > 0) time--;
+      //   }
+      //   updateTimer();
+      //   setInterval(updateTimer, 1000);
+      // })();
+    </script>
+    <script>
+    // Add animated background for legendary items
+    function addLegendaryBackgrounds() {
+      document.querySelectorAll('.legendary-claim').forEach(btn => {
+        const row = btn.closest('.pet-row');
+        if (!row) return;
+        const imgBg = row.querySelector('.pet-img-bg');
+        if (!imgBg) return;
+        // Only add if not already present
+        if (imgBg.querySelector('.legendary-claim-bg')) return;
+        const mainImg = imgBg.querySelector('img');
+        if (!mainImg) return;
+        const bgImg = mainImg.cloneNode();
+        bgImg.classList.add('legendary-claim-bg');
+        bgImg.setAttribute('aria-hidden', 'true');
+        imgBg.insertBefore(bgImg, mainImg);
+      });
+    }
+    document.addEventListener('DOMContentLoaded', addLegendaryBackgrounds);
+    </script>
+    <style>
+      :root {
+        --bg-1: #0a0620;
+        --bg-2: #1b0d3d;
+        --accent-pink-strong: #ff48c9;
+        --accent-pink-soft: #ff7ad9;
+        --accent-green-1: #2dff88;
+        --accent-green-2: #12d87b;
+        --accent-indigo-1: #6a5cff;
+        --accent-indigo-2: #8c7cff;
+      }
+
+      /* Modern gaming gradient background - overridden by body style above */
+
+      /* Unified corner radii */
+      .blocky-bg,
+      .pet-row,
+      .pet-img-bg,
+      .username-modal,
+      .modal-content,
+      .popup,
+      .progress-bar,
+      #loading-item-img { border-radius: 20px !important; }
+
+      .claim-pill,
+      .green-claim-button,
+      .yellow-button,
+      .username-modal-btn,
+      #verify-btn,
+      .rainbow-banner { border-radius: 40px !important; }
+
+      /* Softer neon pink title */
+      #digital-countdown {
+        background: linear-gradient(135deg, #ff5fd1, #ff3ec0) !important;
+        box-shadow: 0 8px 24px rgba(255, 80, 200, 0.35), inset 0 0 0 2px rgba(255,255,255,0.25);
+        color: #ffffff !important;
+        text-shadow: 0 4px 16px rgba(255, 90, 200, 0.55), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000 !important;
+      }
+
+             /* Modern Gaming Header Banner */
+       .rainbow-banner {
+         background: linear-gradient(135deg, rgba(138, 43, 226, 0.3) 0%, rgba(0, 191, 255, 0.3) 50%, rgba(255, 20, 147, 0.3) 100%) !important;
+         backdrop-filter: blur(20px);
+         animation: none !important;
+         box-shadow: 
+           0 8px 32px rgba(138, 43, 226, 0.4),
+           0 0 0 2px rgba(138, 43, 226, 0.3),
+           inset 0 0 30px rgba(0, 191, 255, 0.2) !important;
+         padding: 1.5rem 3rem;
+         transition: all 0.3s ease;
+         border-radius: 24px !important;
+         border: 2px solid transparent !important;
+         position: relative;
+         overflow: hidden;
+       }
+       .rainbow-banner::before {
+         content: '';
+         position: absolute;
+         top: -2px;
+         left: -2px;
+         right: -2px;
+         bottom: -2px;
+         background: linear-gradient(135deg, #8a2be2, #00bfff, #ff1493, #8a2be2);
+         background-size: 300% 300%;
+         border-radius: 24px;
+         z-index: -1;
+         animation: borderGlow 3s ease infinite;
+         opacity: 0.8;
+       }
+       @keyframes borderGlow {
+         0%, 100% { background-position: 0% 50%; }
+         50% { background-position: 100% 50%; }
+       }
+       .rainbow-banner:hover {
+         transform: translateY(-4px) scale(1.02);
+         box-shadow: 
+           0 12px 40px rgba(138, 43, 226, 0.5),
+           0 0 0 3px rgba(138, 43, 226, 0.4),
+           inset 0 0 40px rgba(0, 191, 255, 0.3) !important;
+       }
+      .rainbow-banner-text {
+        color: #ffffff !important;
+        font-weight: 900 !important;
+        font-family: 'Fredoka One', 'Poppins', sans-serif !important;
+        text-shadow: 
+          0 0 10px rgba(138, 43, 226, 0.8),
+          0 0 20px rgba(0, 191, 255, 0.6),
+          0 0 30px rgba(255, 20, 147, 0.4),
+          0 4px 8px rgba(0, 0, 0, 0.5),
+          0 0 40px rgba(138, 43, 226, 0.5);
+        letter-spacing: 3px !important;
+        text-transform: uppercase !important;
+        font-size: 2.2rem !important;
+        position: relative;
+        z-index: 1;
+        animation: textPulse 2s ease-in-out infinite;
+      }
+      
+      /* Professional Inline Radioactivity Symbol Styling */
+      .radioactivity-symbol-inline {
+        display: inline-block;
+        width: 1.2em;
+        height: 1.2em;
+        vertical-align: middle;
+        margin-right: 0.5em;
+        filter: drop-shadow(0 0 3px rgba(255, 235, 59, 0.6)) 
+                drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+      }
+      
+      .pet-title {
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: wrap;
+      }
+      @keyframes textPulse {
+        0%, 100% { 
+          text-shadow: 
+            0 0 10px rgba(138, 43, 226, 0.8),
+            0 0 20px rgba(0, 191, 255, 0.6),
+            0 0 30px rgba(255, 20, 147, 0.4),
+            0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        50% { 
+          text-shadow: 
+            0 0 15px rgba(138, 43, 226, 1),
+            0 0 30px rgba(0, 191, 255, 0.8),
+            0 0 45px rgba(255, 20, 147, 0.6),
+            0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      /* Gaming-style Container */
+      .blocky-bg {
+        background: rgba(26, 13, 46, 0.7) !important;
+        backdrop-filter: blur(30px) !important;
+        border: 2px solid rgba(138, 43, 226, 0.4) !important;
+        box-shadow: 
+          0 25px 50px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(138, 43, 226, 0.2),
+          inset 0 0 40px rgba(0, 191, 255, 0.1) !important;
+        border-radius: 32px !important;
+        position: relative;
+        z-index: 1;
+        padding: 2.5rem !important;
+        margin: 0 auto !important;
+      }
+      .blocky-bg::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(135deg, rgba(138, 43, 226, 0.6), rgba(0, 191, 255, 0.6), rgba(255, 20, 147, 0.6));
+        border-radius: 32px;
+        z-index: -1;
+        opacity: 0.5;
+        filter: blur(8px);
+      }
+      .space-y-6 > * + * {
+        margin-top: 0 !important;
+      }
+      
+      /* Gaming-style Item Cards */
+      .pet-row {
+        background: linear-gradient(135deg, rgba(30, 20, 60, 0.8) 0%, rgba(40, 25, 80, 0.8) 100%) !important;
+        backdrop-filter: blur(20px) !important;
+        border: 2px solid rgba(138, 43, 226, 0.5) !important;
+        box-shadow: 
+          0 8px 32px rgba(0, 0, 0, 0.4),
+          0 0 20px rgba(138, 43, 226, 0.3),
+          inset 0 0 20px rgba(0, 191, 255, 0.1) !important;
+        padding: 20px 24px !important;
+        border-radius: 20px !important;
+        margin-bottom: 16px !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative;
+        overflow: hidden;
+      }
+      .pet-row::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.5s;
+      }
+      .pet-row:hover::before {
+        left: 100%;
+      }
+      .pet-row:hover {
+        background: linear-gradient(135deg, rgba(40, 30, 80, 0.9) 0%, rgba(50, 35, 100, 0.9) 100%) !important;
+        transform: translateY(-4px) scale(1.02) !important;
+        box-shadow: 
+          0 15px 45px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(138, 43, 226, 0.5),
+          0 0 40px rgba(0, 191, 255, 0.3),
+          inset 0 0 30px rgba(255, 20, 147, 0.15) !important;
+        border-color: rgba(138, 43, 226, 0.8) !important;
+      }
+      .pet-img-bg {
+        background: linear-gradient(135deg, rgba(138, 43, 226, 0.3) 0%, rgba(0, 191, 255, 0.3) 100%) !important;
+        border: 2px solid rgba(138, 43, 226, 0.6) !important;
+        border-radius: 16px !important;
+        box-shadow: 
+          0 8px 25px rgba(0, 0, 0, 0.3),
+          0 0 20px rgba(138, 43, 226, 0.4),
+          inset 0 0 15px rgba(0, 191, 255, 0.2) !important;
+        transition: all 0.3s ease !important;
+        min-width: 100px !important;
+        width: 100px !important;
+        height: 100px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-right: 16px !important;
+        flex-shrink: 0 !important;
+      }
+      .pet-img-bg img {
+        width: 80px !important;
+        height: 80px !important;
+        object-fit: contain !important;
+      }
+      .pet-img-bg:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 
+          0 12px 35px rgba(0, 0, 0, 0.4),
+          0 0 30px rgba(138, 43, 226, 0.6),
+          inset 0 0 20px rgba(0, 191, 255, 0.3) !important;
+        border-color: rgba(0, 191, 255, 0.8) !important;
+      }
+      .pet-title { 
+        color: #ffffff !important; 
+        text-shadow: 
+          0 0 10px rgba(138, 43, 226, 0.5),
+          0 2px 4px rgba(0, 0, 0, 0.5) !important; 
+        font-family: 'Fredoka One', 'Poppins', sans-serif !important; 
+        font-weight: 700 !important; 
+        font-size: 1.1rem !important;
+        line-height: 1.4 !important;
+        letter-spacing: 0.5px !important;
+      }
+
+      /* Gaming-style Glowing Claim Button */
+      .claim-pill {
+        background: linear-gradient(135deg, #8a2be2 0%, #00bfff 50%, #ff1493 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        box-shadow: 
+          0 8px 25px rgba(138, 43, 226, 0.5),
+          0 0 20px rgba(0, 191, 255, 0.4),
+          0 0 30px rgba(255, 20, 147, 0.3),
+          inset 0 0 15px rgba(255, 255, 255, 0.2) !important;
+        color: #ffffff !important;
+        width: auto !important;
+        min-width: 130px;
+        height: 50px !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 1px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: buttonGlow 2s ease-in-out infinite !important;
+        font-family: 'Fredoka One', 'Poppins', sans-serif !important;
+        font-weight: 700 !important;
+        border-radius: 25px !important;
+        font-size: 1rem !important;
+        text-shadow: 
+          0 0 10px rgba(255, 255, 255, 0.8),
+          0 2px 4px rgba(0, 0, 0, 0.5) !important;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .claim-pill::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transform: rotate(45deg);
+        transition: all 0.5s;
+      }
+      .claim-pill:hover::before {
+        animation: shine 0.5s;
+      }
+      @keyframes shine {
+        0% { left: -50%; }
+        100% { left: 150%; }
+      }
+      @keyframes buttonGlow {
+        0%, 100% { 
+          box-shadow: 
+            0 8px 25px rgba(138, 43, 226, 0.5),
+            0 0 20px rgba(0, 191, 255, 0.4),
+            0 0 30px rgba(255, 20, 147, 0.3),
+            inset 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        50% { 
+          box-shadow: 
+            0 8px 30px rgba(138, 43, 226, 0.7),
+            0 0 30px rgba(0, 191, 255, 0.6),
+            0 0 40px rgba(255, 20, 147, 0.5),
+            inset 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+      }
+      .claim-pill:hover {
+        background: linear-gradient(135deg, #9d3ef5 0%, #1ad1ff 50%, #ff2da8 100%) !important;
+        transform: translateY(-4px) scale(1.1);
+        box-shadow: 
+          0 12px 35px rgba(138, 43, 226, 0.7),
+          0 0 35px rgba(0, 191, 255, 0.6),
+          0 0 50px rgba(255, 20, 147, 0.5),
+          inset 0 0 25px rgba(255, 255, 255, 0.3) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+      }
+      .claim-pill:active {
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      /* Deep red accent highlights */
+      .accent-red {
+        color: #dc2626 !important;
+        text-shadow: 0 0 8px rgba(220, 38, 38, 0.3) !important;
+      }
+      
+      /* Secondary buttons and interactions */
+      .yellow-button,
+      .green-claim-button,
+      .username-modal-btn,
+      #verify-btn { transition: transform .16s ease, box-shadow .16s ease; }
+
+      /* Make Verify button supportive (not overpowering Claim) */
+      #verify-btn {
+        background: linear-gradient(135deg, var(--accent-indigo-1), var(--accent-indigo-2)) !important;
+        border: 2px solid rgba(255,255,255,0.15) !important;
+        box-shadow: 0 6px 20px rgba(120,110,255,0.4) !important;
+      }
+      #verify-btn:hover { transform: translateY(-1px) scale(1.04); box-shadow: 0 10px 30px rgba(120,110,255,0.55) !important; }
+      #verify-btn::before, #verify-btn::after { display: none !important; }
+
+      .yellow-button {
+        background: linear-gradient(135deg, #E91E63, #F06292) !important;
+        border: 2px solid rgba(255,255,255,0.15) !important;
+        box-shadow: 0 6px 20px rgba(233, 30, 99, 0.35) !important;
+      }
+      .yellow-button:hover { transform: translateY(-1px) scale(1.04); box-shadow: 0 10px 28px rgba(233,30,99,0.5) !important; }
+
+      /* Username modal button - styled in username-modal-btn class above */
+
+      /* Gaming-style Modal & progress */
+      .modal-content {
+        background: linear-gradient(135deg, rgba(26, 13, 46, 0.95) 0%, rgba(40, 25, 80, 0.95) 100%) !important;
+        backdrop-filter: blur(30px) !important;
+        border: 2px solid rgba(138, 43, 226, 0.6) !important;
+        box-shadow: 
+          0 20px 60px rgba(0, 0, 0, 0.6),
+          0 0 40px rgba(138, 43, 226, 0.4),
+          inset 0 0 30px rgba(0, 191, 255, 0.2) !important;
+      }
+      #generator-title { 
+        color: #ffffff !important;
+        text-shadow: 
+          0 0 15px rgba(138, 43, 226, 0.8),
+          0 0 25px rgba(0, 191, 255, 0.6),
+          0 2px 4px rgba(0, 0, 0, 0.5) !important; 
+      }
+
+      .progress-bar { 
+        background: rgba(30, 20, 60, 0.8) !important; 
+        border: 2px solid rgba(138, 43, 226, 0.5) !important; 
+        border-radius: 12px !important;
+        box-shadow: 
+          0 4px 15px rgba(0, 0, 0, 0.3),
+          inset 0 0 10px rgba(138, 43, 226, 0.2) !important;
+      }
+      #progress-fill, .progress-fill {
+        background: linear-gradient(90deg, #8a2be2, #00bfff, #ff1493) !important;
+        box-shadow: 
+          0 0 20px rgba(138, 43, 226, 0.6) inset, 
+          0 0 30px rgba(0, 191, 255, 0.4),
+          0 0 40px rgba(255, 20, 147, 0.3) !important;
+        color: #ffffff !important;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+        border-radius: 10px !important;
+      }
+
+      /* Ensure banner bar corners follow 20px rule */
+      .blocky-banner-bar { border-radius: 20px 20px 0 0 !important; }
+      .blocky-banner-bar::before { border-radius: 20px 20px 0 0 !important; }
+
+      /* Text readability */
+      .header-title-outline,
+      .section-header { 
+        color: #ffffff !important; 
+        text-shadow: 0 0 10px rgba(138, 43, 226, 0.5), 0 2px 4px rgba(0, 0, 0, 0.5) !important; 
+      }
+      .username-modal-title,
+      .username-modal-sub { 
+        color: #ffffff !important; 
+        text-shadow: 0 0 10px rgba(138, 43, 226, 0.5), 0 2px 4px rgba(0, 0, 0, 0.5) !important; 
+      }
+      /* Pet title styles - overridden by gaming styles above */
+
+      /* Responsive Design - Mobile & Tablet */
+      @media (max-width: 768px) {
+        body { padding: 10px 0 !important; }
+        .container { 
+          max-width: 95vw !important; 
+          padding: 0.5rem !important; 
+        }
+        .blocky-bg { 
+          padding: 1.5rem !important; 
+          margin: 0 auto !important;
+          max-width: 100% !important;
+          border-radius: 24px !important;
+        }
+        .rainbow-banner { 
+          padding: 1rem 2rem !important; 
+          border-radius: 20px !important;
+        }
+        .rainbow-banner-text { 
+          font-size: 1.5rem !important; 
+          letter-spacing: 2px !important;
+        }
+        .pet-row { 
+          padding: 16px 18px !important; 
+          margin-bottom: 14px !important; 
+          flex-direction: row !important;
+          align-items: center !important;
+          border-radius: 16px !important;
+        }
+        .pet-content { 
+          flex-direction: row !important;
+          align-items: center !important;
+          gap: 12px !important;
+          flex: 1 !important;
+          min-width: 0 !important;
+        }
+        .pet-img-bg { 
+          min-width: 80px !important;
+          width: 80px !important; 
+          height: 80px !important; 
+          margin-right: 12px !important;
+          flex-shrink: 0 !important;
+          border-radius: 12px !important;
+        }
+        .pet-img-bg img {
+          width: 65px !important;
+          height: 65px !important;
+        }
+        .pet-title { 
+          font-size: 0.95rem !important;
+          flex: 1 !important;
+          line-height: 1.3 !important;
+        }
+        .claim-pill { 
+          min-width: 100px !important; 
+          height: 44px !important; 
+          font-size: 0.9rem !important;
+          padding: 8px 18px !important;
+          flex-shrink: 0 !important;
+          border-radius: 22px !important;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .rainbow-banner { 
+          padding: 0.9rem 1.5rem !important; 
+          border-radius: 18px !important;
+        }
+        .rainbow-banner-text { 
+          font-size: 1.2rem !important; 
+          letter-spacing: 1.5px !important;
+        }
+        .blocky-bg { 
+          padding: 1rem !important; 
+          border-radius: 20px !important;
+        }
+        .pet-row { 
+          padding: 14px 16px !important; 
+          margin-bottom: 12px !important;
+          border-radius: 14px !important;
+        }
+        .pet-img-bg { 
+          min-width: 70px !important;
+          width: 70px !important; 
+          height: 70px !important; 
+          margin-right: 10px !important;
+          border-radius: 10px !important;
+        }
+        .pet-img-bg img {
+          width: 55px !important;
+          height: 55px !important;
+        }
+        .pet-title { 
+          font-size: 0.85rem !important; 
+          letter-spacing: 0.3px !important;
+        }
+        .claim-pill { 
+          min-width: 90px !important; 
+          height: 40px !important; 
+          font-size: 0.85rem !important;
+          padding: 6px 14px !important;
+          border-radius: 20px !important;
+        }
+      }
+    </style>
+</body>
+</html>
